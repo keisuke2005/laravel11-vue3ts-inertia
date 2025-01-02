@@ -18,10 +18,11 @@ export default defineComponent({
     },
     methods: {
         checkType() {
-            const value: number = "a";
+            const value: number = 1;
             console.log(value);
             const unusedVar = 'This is not used';
             console.log(unusedVar);
+            
             
 
 
