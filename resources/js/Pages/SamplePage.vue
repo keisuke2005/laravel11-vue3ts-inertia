@@ -18,7 +18,7 @@ export default defineComponent({
     },
     methods: {
         checkType() {
-            const value: number = 123;
+            const value: number = 1;
             console.log(value);
             const unusedVar = 'This is not used';
             console.log(unusedVar);
