@@ -7,6 +7,12 @@
         "type-check": "vue-tsc --noEmit",
         "prepare": "husky install"
     },
+    "lint-staged": {
+        "resources/**/*.{ts,vue}": [
+            "vue-tsc --noEmit",
+            "eslint --fix"
+        ]
+    },
     "devDependencies": {
         "@eslint/js": "^9.17.0",
         "@types/node": "^22.10.2",
