@@ -21,8 +21,9 @@ export default defineComponent({
             const value: number = 1;
             console.log(value);
             const unusedVar = 'This is not used';
-            //console.log(unusedVar);
+            console.log(unusedVar);
             
+
 
         },
     },
