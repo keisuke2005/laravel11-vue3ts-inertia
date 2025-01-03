@@ -14,8 +14,14 @@ class SampleController extends Controller
      */
     public function sample(): Response
     {
+        $staticScanTest = $this->staticScanTest();
         return Inertia::render('SamplePage', [
             'message' => 'Hello, Inertia.js!',
         ]);
+    }
+
+    private function staticScanTest():string
+    {
+        return "staticScanTest";
     }
 }

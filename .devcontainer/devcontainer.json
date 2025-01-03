@@ -1,0 +1,20 @@
+{
+    "name": "StaticScan",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "overrideCommand": true,
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "esbenp.prettier-vscode",
+                "vue.volar",
+                "sanderronde.phpstan-vscode",
+                "dbaeumer.vscode-eslint",
+                "onecentlin.laravel-blade",
+                "ms-ceintl.vscode-language-pack-ja",
+                "oderwat.indent-rainbow"
+            ]
+        }
+    }
+}

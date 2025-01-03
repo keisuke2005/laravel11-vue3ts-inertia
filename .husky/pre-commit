@@ -1,4 +1,19 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
+export PATH="$HOME/.nvm/versions/node/v22.12.0/bin:$PATH"
 npx lint-staged
+LINT_STAGED_STATUS=$?
+
+# Larastan（PHPStan）の静的解析
+vendor/bin/phpstan analyse
+LARASTAN_STATUS=$?
+
+# 結果を判定
+if [ $LINT_STAGED_STATUS -ne 0 ] || [ $LARASTAN_STATUS -ne 0 ]; then
+    echo "❌ Pre-commit checks failed. Fix the issues before committing."
+    exit 1
+fi
+
+echo "✅ All checks passed. Proceeding with commit."
+
