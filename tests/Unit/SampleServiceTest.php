@@ -6,11 +6,11 @@ use Tests\TestCase;
 use App\Services\Contracts\SampleServiceInterface;
 use App\Repositories\Contracts\SampleRepositoryInterface;
 use App\Models\Sample;
-use Mockery;
+use PHPUnit\Framework\Attributes\Test;
 
 class SampleServiceTest extends TestCase
 {
-    /** @test */
+    #[Test]
     public function it_returns_sample_data_by_id():void
     {
         // サンプルデータを用意

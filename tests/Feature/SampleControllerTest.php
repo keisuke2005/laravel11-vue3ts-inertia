@@ -5,11 +5,11 @@ namespace Tests\Feature;
 use Tests\TestCase;
 use App\Models\Sample;
 use App\Services\Contracts\SampleServiceInterface;
-use Mockery;
+use PHPUnit\Framework\Attributes\Test;
 
 class SampleControllerTest extends TestCase
 {
-    /** @test */
+    #[Test]
     public function it_returns_sample_page_with_sample_message():void
     {
         // サンプルデータ
