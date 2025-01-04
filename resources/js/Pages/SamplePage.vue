@@ -1,7 +1,6 @@
 <template>
     <div class="container mt-5">
-        <h1 class="text-primary">コンテナ php8.4+nginx/node(vite)/mysql</h1>
-        <h1 class="text-primary">アプリケーション Laravel11/Inertia/Vue3/TypeScript/Bootstrap5</h1>
+        <h1 class="text-primary">{{ message }}</h1>
         <button class="btn btn-success" @click="checkType">Click Me</button>
     </div>
 </template>

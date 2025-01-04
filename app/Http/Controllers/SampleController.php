@@ -4,24 +4,20 @@ namespace App\Http\Controllers;
 
 use Inertia\Inertia;
 use Inertia\Response;
+use App\Services\Contracts\SampleServiceInterface;
 
 class SampleController extends Controller
 {
-    /**
-     * Display the sample page.
-     *
-     * @return \Inertia\Response
-     */
+    function __construct(
+        private readonly SampleServiceInterface $sampleService
+    )
+    {}
+
     public function sample(): Response
     {
-        $staticScanTest = $this->staticScanTest();
+        $sample = $this->sampleService->getSample(1);
         return Inertia::render('SamplePage', [
-            'message' => 'Hello, Inertia.js!',
+            'message' => $sample->sample_str,
         ]);
-    }
-
-    private function staticScanTest():string
-    {
-        return "staticScanTest";
     }
 }

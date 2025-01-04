@@ -8,6 +8,7 @@
         "vscode": {
             "extensions": [
                 "esbenp.prettier-vscode",
+                "bmewburn.vscode-intelephense-client",
                 "vue.volar",
                 "sanderronde.phpstan-vscode",
                 "dbaeumer.vscode-eslint",

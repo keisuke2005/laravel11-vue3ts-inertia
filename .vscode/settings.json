@@ -1,4 +1,6 @@
 {
     "phpstan.binPath": "/workspaces/src/vendor/bin/phpstan",
     "phpstan.configFile": "/workspaces/src/phpstan.neon",
+    "php.executablePath": "/usr/local/bin/php",
+    "intelephense.environment.phpVersion": "8.4.0"
 }
