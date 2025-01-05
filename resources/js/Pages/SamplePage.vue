@@ -21,7 +21,6 @@ export default defineComponent({
             console.log(value);
             const unusedVar = 'This is not used';
             console.log(unusedVar);
-            
         },
     },
 });

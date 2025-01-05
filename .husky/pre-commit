@@ -5,12 +5,28 @@ export PATH="$HOME/.nvm/versions/node/v22.12.0/bin:$PATH"
 npx lint-staged
 LINT_STAGED_STATUS=$?
 
+echo "hoge2"
+
+# ステージされた PHP ファイルを取得
+STAGED_FILES=$(git diff --cached --name-only --diff-filter=d | awk '/\.php$/')
+
+echo "hoge"
 # Larastan（PHPStan）の静的解析
-vendor/bin/phpstan analyse
-LARASTAN_STATUS=$?
+if [ -n "$STAGED_FILES" ]; then
+    echo "Running PHPStan on staged files..."
+    vendor/bin/phpstan analyse $STAGED_FILES
+    LARASTAN_STATUS=$?
+else
+    echo "No PHP files staged for PHPStan check."
+    LARASTAN_STATUS=0
+fi
+
+# PHPUnit のユニットテスト実行
+php artisan test
+PHPUNIT_STATUS=$?
 
 # 結果を判定
-if [ $LINT_STAGED_STATUS -ne 0 ] || [ $LARASTAN_STATUS -ne 0 ]; then
+if [ $LINT_STAGED_STATUS -ne 0 ] || [ $LARASTAN_STATUS -ne 0 ] || [ $PHPUNIT_STATUS -ne 0 ]; then
     echo "❌ Pre-commit checks failed. Fix the issues before committing."
     exit 1
 fi

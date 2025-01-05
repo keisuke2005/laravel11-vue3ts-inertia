@@ -19,7 +19,7 @@ RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash - && \
 RUN add-apt-repository ppa:ondrej/php && \
     apt-get update
 
-# PHP 8.4 のインストール（バージョンを明示）
+# PHP 8.4 のインストール
 RUN apt-get install -y \
     php8.4-cli \
     php8.4-mbstring \

@@ -1,4 +1,6 @@
 {
+    "typescript.validate.enable": true,
+    "javascript.validate.enable": false,
     "phpstan.binPath": "/workspaces/src/vendor/bin/phpstan",
     "phpstan.configFile": "/workspaces/src/phpstan.neon",
     "php.executablePath": "/usr/local/bin/php",
