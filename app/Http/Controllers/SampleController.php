@@ -16,8 +16,6 @@ class SampleController extends Controller
     public function sample(): Response
     {
         //$test = $this->test();
-        
-        
         $message = $this->sampleService->getSample(1)->sample_str;
         return Inertia::render('SamplePage', [
             'message' => $message,
