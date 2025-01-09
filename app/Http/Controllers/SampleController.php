@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Inertia\Inertia;
 use Inertia\Response;
 use App\Services\Contracts\SampleServiceInterface;
+use Illuminate\Http\JsonResponse;
 
 class SampleController extends Controller
 {
@@ -15,10 +16,21 @@ class SampleController extends Controller
 
     public function sample(): Response
     {
-        //$test = $this->test();
-        $message = $this->sampleService->getSample(1)->sample_str;
+        $samples = $this->sampleService->getSample();
+
         return Inertia::render('SamplePage', [
-            'message' => $message,
+            'initialSamples' => $samples,
         ]);
+    }
+
+    public function getSampleData(): JsonResponse
+    {
+        // Sampleモデルからデータを取得
+        $samples = $this->sampleService->getSample();
+
+        return response()->json([
+            'success' => true,
+            'samples' => $samples,
+        ], 200);
     }
 }

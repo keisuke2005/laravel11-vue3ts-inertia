@@ -3,8 +3,10 @@
 namespace App\Services\Contracts;
 
 use App\Models\Sample;
+use \Illuminate\Database\Eloquent\Collection;
 
 interface SampleServiceInterface
 {
-    public function getSample(int $id): Sample;
+    /** @return Collection<int, Sample> */
+    public function getSample(): Collection;
 }

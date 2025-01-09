@@ -5,6 +5,7 @@ namespace App\Services\Implementations;
 use App\Models\Sample;
 use App\Services\Contracts\SampleServiceInterface;
 use App\Repositories\Contracts\SampleRepositoryInterface;
+use \Illuminate\Database\Eloquent\Collection;
 
 class SampleService implements SampleServiceInterface
 {
@@ -12,8 +13,9 @@ class SampleService implements SampleServiceInterface
         private readonly SampleRepositoryInterface $sampleRepository
     ){}
 
-    public function getSample(int $id): Sample
+    /** @return Collection<int, Sample> */
+    public function getSample(): Collection
     {
-        return $this->sampleRepository->findById($id);
+        return $this->sampleRepository->getLimitedSamples();
     }
 }
