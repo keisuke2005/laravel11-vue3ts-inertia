@@ -19,9 +19,9 @@
 </template>
 
 <script lang="ts" setup>
-import { useSampleData } from "../Composables/useSampleData";
-import BaseCard from "../Components/BaseCard.vue";
-import { SampleData } from "../Types/SampleTypes";
+import { useSampleData } from "@/Composables/useSampleData";
+import BaseCard from "@/Components/BaseCard.vue";
+import { SampleData } from "@/Types/SampleTypes";
 
 
 const { initialSamples } = defineProps<{
