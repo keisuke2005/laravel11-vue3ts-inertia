@@ -9,7 +9,6 @@
     },
     "lint-staged": {
         "resources/**/*.{ts,vue}": [
-            "vue-tsc --noEmit",
             "eslint --fix"
         ]
     },

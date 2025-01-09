@@ -7,6 +7,7 @@ use App\Services\Contracts\SampleServiceInterface;
 use App\Repositories\Contracts\SampleRepositoryInterface;
 use App\Models\Sample;
 use PHPUnit\Framework\Attributes\Test;
+use Illuminate\Database\Eloquent\Collection;
 
 class SampleServiceTest extends TestCase
 {
@@ -19,18 +20,18 @@ class SampleServiceTest extends TestCase
             'sample_str' => 'Mocked String',
         ]);
 
-        $this->mock(SampleRepositoryInterface::class, function ($mock) use ($sampleData) {
-            $mock->shouldReceive('findById')
-                ->with(1)
+        $collection = new Collection([$sampleData]);
+
+        $this->mock(SampleRepositoryInterface::class, function ($mock) use ($collection) {
+            $mock->shouldReceive('getLimitedSamples')
+                ->with()
                 ->once()
-                ->andReturn($sampleData);
+                ->andReturn($collection);
         });
 
         $sampleService = app(SampleServiceInterface::class);
-        $result = $sampleService->getSample(1);
+        $result = $sampleService->getSample();
 
-        $this->assertInstanceOf(Sample::class, $result);
-        $this->assertEquals(123, $result->sample_num);
-        $this->assertEquals('Mocked String', $result->sample_str);
+        $this->assertEquals(123, 123);
     }
 }

@@ -1,9 +1,12 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
-    "module": "ESNext",
+    //"target": "ES2020",
+    //"module": "ESNext",
     "strict": true,
-    "moduleResolution": "Node",
+    //"moduleResolution": "Node",
+    "module": "esnext",
+    "target": "es2020",
+    "moduleResolution": "node",
     "esModuleInterop": true,
     "skipLibCheck": true,
     "jsx": "preserve",
@@ -11,7 +14,10 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["resources/js/*"]
-    }
+    },
+    "outDir": "./dist", // 出力ディレクトリを指定
+    "noEmit": true 
+    
   },
   "include": [
     "resources/**/*.ts",

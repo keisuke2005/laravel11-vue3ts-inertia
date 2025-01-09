@@ -6,6 +6,7 @@ use Tests\TestCase;
 use App\Models\Sample;
 use App\Services\Contracts\SampleServiceInterface;
 use PHPUnit\Framework\Attributes\Test;
+use Illuminate\Database\Eloquent\Collection;
 
 class SampleControllerTest extends TestCase
 {
@@ -18,11 +19,13 @@ class SampleControllerTest extends TestCase
             'sample_str' => 'Mocked Message',
         ]);
 
-        $this->mock(SampleServiceInterface::class, function ($mock) use ($sampleData) {
+        $collection = new Collection([$sampleData]);
+
+        $this->mock(SampleServiceInterface::class, function ($mock) use ($collection) {
             $mock->shouldReceive('getSample')
-                ->with(1)
+                ->with()
                 ->once()
-                ->andReturn($sampleData);
+                ->andReturn($collection);
         });
 
         $response = $this->get('/sample');
