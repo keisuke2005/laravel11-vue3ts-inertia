@@ -28,6 +28,7 @@ const { initialSamples } = defineProps<{
     initialSamples: SampleData[];
 }>();
 
+
 const { sampleData, isLoading, error, fetchSampleData } = useSampleData( initialSamples );
 
 </script>
