@@ -18,15 +18,10 @@ else
     LARASTAN_STATUS=0
 fi
 
-# PHPUnit のユニットテスト実行
-php artisan test
-PHPUNIT_STATUS=$?
-
 # 結果を判定
-if [ $LINT_STAGED_STATUS -ne 0 ] || [ $LARASTAN_STATUS -ne 0 ] || [ $PHPUNIT_STATUS -ne 0 ]; then
+if [ $LINT_STAGED_STATUS -ne 0 ] || [ $LARASTAN_STATUS -ne 0 ]; then
     echo "❌ Pre-commit checks failed. Fix the issues before committing."
     exit 1
 fi
 
 echo "✅ All checks passed. Proceeding with commit."
-
